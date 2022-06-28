@@ -1,0 +1,26 @@
+{
+  "name": "adaptive-threshold-wasm",
+  "version": "0.0.1",
+  "description": "adaptive threshold wasm",
+  "type": "module",
+  "main": "./dist/index.js",
+  "exports": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "module": "./dist/index.js",
+  "sideEffects": false,
+  "repository": "https://github.com/ahaoboy/adaptive-threshold-wasm",
+  "bugs": "https://github.com/ahaoboy/adaptive-threshold-wasm/issues",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["adaptive", "threshold", "gray", "grey"],
+  "author": "ahaoboy",
+  "license": "ISC",
+  "npmName": "adaptive-threshold-wasm",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
+}
