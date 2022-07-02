@@ -1,5 +1,5 @@
 import initWasm from "./wasm";
-import { ThresholdType, ThresholdMethod } from "./type";
+import { ThresholdType, AdaptiveMethod } from "./type";
 export * from "./type";
 
 let wasmModule: any;
@@ -15,7 +15,7 @@ export const toThreshold = (
   width: number,
   height: number,
   maxValue: number = 255,
-  adaptiveMethod: number = ThresholdMethod.CV_ADAPTIVE_THRESH_MEAN_C,
+  adaptiveMethod: number = AdaptiveMethod.CV_ADAPTIVE_THRESH_MEAN_C,
   thresholdType: number = ThresholdType.CV_THRESH_BINARY,
   blockSize: number = 7,
   C: number = 3
@@ -35,6 +35,7 @@ export const toThreshold = (
   const data = new Uint8Array(wasmModule.HEAP8.buffer, r, width * height);
   const output = new Uint8ClampedArray(data);
   wasmModule._destroy_buffer(r);
+  wasmModule._destroy_buffer(p);
   return output;
 };
 
@@ -49,5 +50,6 @@ export const toGray = (
   const data = new Uint8Array(wasmModule.HEAP8.buffer, r, width * height);
   const output = new Uint8ClampedArray(data);
   wasmModule._destroy_buffer(r);
+  wasmModule._destroy_buffer(p);
   return output;
 };
